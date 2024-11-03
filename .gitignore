@@ -1,0 +1,7 @@
+.vscode/
+.idea
+uploads/
+.DS_Store
+
+.env
+.restclient/
