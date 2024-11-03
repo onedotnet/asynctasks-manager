@@ -17,6 +17,7 @@ const (
 	NODE_STOPPED      = "stopped"
 	NODE_ERROR        = "error"
 	NODE_UNAVAILIABLE = "unavailable"
+	NODE_OFFLINE      = "offline"
 )
 
 type TaskNode struct {
@@ -126,7 +127,7 @@ func GetTaskNode(nodeID uuid.UUID) (*TaskNode, error) {
 
 func GetAvaliableTaskNode(capability string) (*TaskNode, error) {
 	var tn TaskNode
-	err := database.DB().Where("avaliable = ? AND ? = ANY(capabilities)", true, capability).First(&tn).Error
+	err := database.DB().Where("status = ? AND avaliable = ? AND ? = ANY(capabilities)", NODE_RUNNING, true, capability).First(&tn).Error
 	return &tn, err
 }
 

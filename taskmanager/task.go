@@ -136,3 +136,14 @@ func (t *Task) Update() error {
 	})
 	return err
 }
+
+func GetTaskByUUID(uid uuid.UUID) (*Task, error) {
+	var task Task
+	err := database.DB().Transaction(func(tx *gorm.DB) error {
+		if err := tx.Where("message_id = ?", uid).First(&task).Error; err != nil {
+			return err
+		}
+		return nil
+	})
+	return &task, err
+}

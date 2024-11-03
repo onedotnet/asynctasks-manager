@@ -21,4 +21,5 @@ func Init(rg *gin.RouterGroup) {
 
 	// task routes
 	rg.POST("/task/update", UpdateTask)
+	rg.GET("/task/:id", GetTask)
 }

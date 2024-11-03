@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/onedotnet/asynctasks/api/v1/handler"
 	"github.com/onedotnet/asynctasks/config"
+	"github.com/onedotnet/asynctasks/taskmanager"
 	"github.com/spf13/cobra"
 )
 
@@ -32,6 +33,8 @@ func start() {
 	handler.Init(r.Group(groupName))
 
 	addr := fmt.Sprintf("%s:%d", config.AppConfig.ListenHost, config.AppConfig.ListenPort)
+	// Start the background services
+	taskmanager.StartBackGroundServices()
 	r.Run(addr)
 
 }

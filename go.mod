@@ -63,6 +63,7 @@ require (
 
 require (
 	github.com/gin-contrib/static v1.1.2
+	github.com/jasonlvhit/gocron v0.0.1
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/spf13/viper v1.19.0
