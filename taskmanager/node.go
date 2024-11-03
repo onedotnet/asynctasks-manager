@@ -67,7 +67,6 @@ func (tn *TaskNode) Update() error {
 		return CreateTaskNode(tn)
 	}
 	tn.UpdatedAt = time.Now()
-	fmt.Println(tn)
 	return database.DB().Save(tn).Error
 }
 
