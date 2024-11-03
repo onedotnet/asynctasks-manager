@@ -57,6 +57,9 @@ func (tn *TaskNode) Exists() bool {
 		var ntn TaskNode
 		database.DB().Model(&TaskNode{}).Where("node_id = ?", tn.NodeID).First(&ntn)
 		tn.ID = ntn.ID
+		tn.CreatedAt = ntn.CreatedAt
+		tn.UpdatedAt = time.Now()
+
 		return true
 	}
 	return false
