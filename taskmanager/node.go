@@ -40,6 +40,8 @@ func CreateTaskNode(tn *TaskNode) error {
 	if tn.Exists() {
 		return fmt.Errorf("node %s already exists", tn.NodeID.String())
 	}
+	tn.CreatedAt = time.Now()
+	tn.UpdatedAt = time.Now()
 	tn.Avaliable = true
 	tn.Status = NODE_CREATING
 	tn.FinishedTask = 0

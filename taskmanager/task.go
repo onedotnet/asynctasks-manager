@@ -94,6 +94,8 @@ type TaskRoop struct {
 }
 
 func CreateTask(t *Task) error {
+	t.CreatedAt = time.Now()
+	t.UpdatedAt = time.Now()
 	err := database.DB().Transaction(func(tx *gorm.DB) error {
 		if err := tx.Create(t).Error; err != nil {
 			return err
