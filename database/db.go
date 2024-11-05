@@ -11,7 +11,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type JSONB []interface{}
+type JSONB map[string]interface{}
 
 func (j JSONB) Value() (interface{}, error) {
 	return json.Marshal(j)

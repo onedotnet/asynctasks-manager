@@ -141,7 +141,7 @@ func UploadTaskImage(c *gin.Context) {
 	}
 
 	sourceUrl := fmt.Sprintf("%s/%s/%s", config.AppConfig.InstancePublicURL, todaypath, filename)
-	task.Payload = database.JSONB{taskmanager.TaskRoop{
+	task.Payload = database.JSONB{"payload": taskmanager.TaskRoop{
 		Source:        sourceUrl,
 		Target:        img.BaseImageUrl,
 		OutputMessage: "",

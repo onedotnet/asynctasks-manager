@@ -109,7 +109,7 @@ func CreateRoopTask(tn *TaskRoop) (*Task, error) {
 	task := Task{
 		Name:     "Roop Task",
 		Status:   TASK_PENDING,
-		Payload:  database.JSONB{tn},
+		Payload:  database.JSONB{"payload": tn},
 		TaskType: TASK_TYPE_ROOP,
 	}
 	err := database.DB().Transaction(func(tx *gorm.DB) error {

@@ -21,7 +21,7 @@ func makeatask() {
 	task := taskmanager.Task{
 		Name:     "Test Task",
 		Status:   "Pending",
-		Payload:  database.JSONB{roopTask},
+		Payload:  database.JSONB{"payload": roopTask},
 		TaskType: taskmanager.TASK_TYPE_ROOP,
 	}
 	fmt.Println(task)
